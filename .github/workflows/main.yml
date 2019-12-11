@@ -7,12 +7,14 @@ jobs:
 
     runs-on: ubuntu-latest
 
+
     steps:
     - uses: actions/checkout@v1
     - name: FTP Deploy
       uses: SamKirkland/FTP-Deploy-Action@2.0.0
       env:
           # FTP server name (you may need to specify a port)
+          # TEST!!
           FTP_SERVER: ta18aru.itmajakas.ee
           # FTP account username
           FTP_USERNAME: tuuletallaja.ta18aru.itmajakas.ee
@@ -22,4 +24,3 @@ jobs:
           port: 21
           # The remote folder to copy to, deafults to root FTP folder (I recommend you configure this on your server side instead of here)
           remote_dir: /kalku
-          
