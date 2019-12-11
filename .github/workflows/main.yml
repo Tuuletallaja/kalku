@@ -11,13 +11,13 @@ jobs:
     - uses: actions/checkout@v1
     - name: FTP Deploy
       uses: SamKirkland/FTP-Deploy-Action@2.0.0
-      with:
+      env:
         # FTP server name (you may need to specify a port)
         FTP_SERVER: FTP_SERVER
         # FTP account username
-        ftp_username: d82653f180951
+        FTP_USERNAME: d82653f180951
         # FTP account password
-        ftp_password: FTP_PASSWORD
+        FTP_PASSWORD: FTP_PASSWORD
         # Protocol used to deploy (ftp or sftp)
         method: ftp # optional, default is ftp
         # The port used to connect to server
