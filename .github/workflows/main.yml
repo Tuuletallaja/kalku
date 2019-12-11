@@ -13,11 +13,11 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@2.0.0
       env:
         # FTP server name (you may need to specify a port)
-        FTP_SERVER: FTP_SERVER
+        FTP_SERVER: ${{secrets:FTP_SERVER}}
         # FTP account username
         FTP_USERNAME: d82653f180951
         # FTP account password
-        FTP_PASSWORD: FTP_PASSWORD
+        FTP_PASSWORD: ${{secrets:FTP_PASSWORD}}
         # Protocol used to deploy (ftp or sftp)
         method: ftp # optional, default is ftp
         # The port used to connect to server
