@@ -15,6 +15,7 @@ $router->get('','PagesController@home');
 $router->get('about','PagesController@about');
 $router->get('contact','PagesController@contact');
 $router->get('addmaterial','materialController@index');
+$router->get('delete_material','materialController@delete_material');
 $router->get('feedback','PagesController@feedback');
 
 //$router->get('addmaterial','materialController@index');

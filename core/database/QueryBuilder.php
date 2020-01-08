@@ -17,6 +17,7 @@ class QueryBuilder
 
         return $statement->fetchAll(PDO::FETCH_CLASS);
     }
+
     public function insert($table, $parameters)
     {
         $sql = sprintf(
@@ -30,10 +31,30 @@ class QueryBuilder
             $statement = $this->pdo->prepare($sql);
             
             $statement ->execute($parameters);
-        } catch (Exeption $e) {
+        } catch (Exception $e) {
             die('Oopse, midagi läks nihu!!!!11!!!1!!!1');
         }
 
         //die(var_dump($sql));
+    }
+
+    public function delete($table, $id) {
+
+        $sql = sprintf(
+            'delete from %s where idmaterials=%s ;',
+            $table,
+            $id);
+        //die(print_r($sql));
+
+        try {
+            
+            $statement = $this->pdo->prepare($sql);
+            
+            $statement ->execute($statement);
+            die(print_r($statement));
+        } catch (Exception $e) {
+            die('Oopse, midagi läks nihu!!!!11!!!1!!!1');
+        }
+
     }
 }

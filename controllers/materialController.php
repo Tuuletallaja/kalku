@@ -20,4 +20,15 @@ class MaterialController {
         return redirect('addmaterial');
     }
 
+    public function delete_material() {
+
+        global $app;
+        $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+        die(print_r($id));
+        $app['database'] -> delete('material', $id);
+
+
+        header('Location: /addmaterial?message=Rida kustutatud');
+    }
+
 }

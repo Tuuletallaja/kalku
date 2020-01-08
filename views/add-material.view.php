@@ -7,13 +7,19 @@
 
 
 <table >
+    <tr>
+        <th style="border: solid 1px">MATERIAL</th>
+        <th style="border: solid 1px">ÜHIK</th>
+    </tr>
 
 <?php if(!empty($materials)) : foreach ($materials as $material) : ?>
     <tr>
-        <th style="border: solid 1px"><?php echo $material->name?></th>
-        <th style="border: solid 1px"><?php echo $material->unit?></th>
+        <td style="border: solid 1px"><?php echo $material->name?></td>
+        <td style="border: solid 1px"><?php echo $material->unit?></td>
+        <td style="border: solid 1px"><a href="">MUUDA</a></td>
+        <td style="border: solid 1px"><a href="/delete_material?id=<?php echo $material->idmaterials ?>">KUSTUTA</a></td>
     </tr>
-<?php endforeach; endif; ?>
+    <?php endforeach; endif; ?>
 
 </table>
 <br>
