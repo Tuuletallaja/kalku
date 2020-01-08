@@ -29,7 +29,7 @@ class QueryBuilder
         );
         try {
             $statement = $this->pdo->prepare($sql);
-            
+            //die(print_r($statement));
             $statement ->execute($parameters);
         } catch (Exception $e) {
             die('Oopse, midagi läks nihu!!!!11!!!1!!!1');
@@ -40,18 +40,15 @@ class QueryBuilder
 
     public function delete($table, $id) {
 
-        $sql = sprintf(
-            'delete from %s where idmaterials=%s ;',
-            $table,
-            $id);
+        $sql = "delete from {$table} where idmaterials=:id;";
         //die(print_r($sql));
 
         try {
             
             $statement = $this->pdo->prepare($sql);
             
-            $statement ->execute($statement);
-            die(print_r($statement));
+            $statement ->execute([':id' => $id]);
+            //die(print_r($statement));
         } catch (Exception $e) {
             die('Oopse, midagi läks nihu!!!!11!!!1!!!1');
         }
