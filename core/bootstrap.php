@@ -10,6 +10,7 @@ require 'core/database/Connection.php';
 require 'core/database/QueryBuilder.php';
 require 'controllers/PagesController.php';
 require 'controllers/materialController.php';
+require 'controllers/UserController.php';
 
 global $app;
 $app = [];

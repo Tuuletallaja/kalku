@@ -6,6 +6,12 @@ class PagesController {
         return view('index');
     }
 
+    public function login() {
+        
+
+        return view('login');
+    }
+
     public function add_material() {
         
 
@@ -13,7 +19,7 @@ class PagesController {
     }
 
     public function feedback() {
-        
+        global $app;
         $feedback = $app::get['database']->selectAll('feedback');
 
         return view('feedback');

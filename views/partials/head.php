@@ -1,3 +1,5 @@
+<?php //print_r($_SESSION); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,5 +12,16 @@
     <title>Document</title>
 </head>
 <body>
+    <?php 
+    if($_SESSION['is_logged_in'] === true) {
+        echo "Tere, {$_SESSION['user']}!";
+        echo '<br>';
+        echo '<a href="/logout">Logi välja</a>';
+    } else {
+        echo '<a href="/login">Login</a>';   
+    }
+    ?>
+    
+    </li>
     <div class="container">
     <?php require('nav.php'); ?>

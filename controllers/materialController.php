@@ -31,4 +31,14 @@ class MaterialController {
         header('Location: /addmaterial?message=Rida kustutatud');
     }
 
+    public function update() {
+        global $app;
+        $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+        $material = filter_input(INPUT_POST, 'material_name', FILTER_SANITIZE_STRING);
+        $unit = filter_input(INPUT_POST, 'unit', FILTER_SANITIZE_STRING);
+        $app['database']->update('materials', $material, $unit, $id);
+        
+        return redirect('addmaterial');
+    }
+
 }

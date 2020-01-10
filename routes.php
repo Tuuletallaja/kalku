@@ -17,10 +17,15 @@ $router->get('contact','PagesController@contact');
 $router->get('addmaterial','materialController@index');
 $router->get('delete_material','materialController@delete_material');
 $router->get('feedback','PagesController@feedback');
+$router->get('login','UserController@index');
+$router->get('login','UserController@index');
+$router->get('logout','UserController@logout');
 
 //$router->get('addmaterial','materialController@index');
 
 $router->post('save_feedback','controllers/save_feedback.php');
 $router->post('store','materialController@store');
+$router->post('update','materialController@update');
+$router->post('login','UserController@login');
 
 //var_dump($router ->routes);
