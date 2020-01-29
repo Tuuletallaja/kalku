@@ -20,6 +20,7 @@ $router->get('feedback','PagesController@feedback');
 $router->get('login','UserController@index');
 $router->get('login','UserController@index');
 $router->get('logout','UserController@logout');
+$router->get('register','PagesController@register');
 
 //$router->get('addmaterial','materialController@index');
 
@@ -27,5 +28,6 @@ $router->post('save_feedback','controllers/save_feedback.php');
 $router->post('store','materialController@store');
 $router->post('update','materialController@update');
 $router->post('login','UserController@login');
+$router->post('register','UserController@register');
 
 //var_dump($router ->routes);

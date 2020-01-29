@@ -12,6 +12,12 @@ class PagesController {
         return view('login');
     }
 
+    public function register() {
+        
+
+        return view('register');
+    }
+
     public function add_material() {
         
 

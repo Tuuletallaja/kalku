@@ -40,6 +40,9 @@ class QueryBuilder
             ':' . implode(', :',array_keys($parameters))
             
         );
+        
+        //die(print_r($sql));
+
         try {
             $statement = $this->pdo->prepare($sql);
             //die(print_r($statement));
@@ -48,7 +51,6 @@ class QueryBuilder
             die('Oopse, midagi läks nihu!!!!11!!!1!!!1');
         }
 
-        //die(var_dump($sql));
     }
 
     public function delete($table, $id) {

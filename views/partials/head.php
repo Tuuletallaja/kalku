@@ -18,7 +18,9 @@
         echo '<br>';
         echo '<a href="/logout">Logi välja</a>';
     } else {
-        echo '<a href="/login">Login</a>';   
+        echo '<a href="/login">Login</a>'; 
+        echo '<br>';  
+        echo '<a href="/register">Register</a>';   
     }
     ?>
     

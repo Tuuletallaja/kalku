@@ -64,14 +64,6 @@ class UserController {
         
         return false;
 
-        //print_r($_SESSION);
-        //print_r($_REQUEST);
-//        $app['database']->insert('user', [
-//            'username' => $username,
-//            'password' => sha1($password),
-//            'reg_date' => date("Y-m-d H:i:s")
-//        ]);
-
     }
 
     public function logout() {
@@ -79,4 +71,58 @@ class UserController {
         header('Location: /');
     }
 
+
+    public function register() {
+        global $app;
+
+        $username = filter_input(INPUT_POST,'username',FILTER_SANITIZE_STRING);
+        $password = filter_input(INPUT_POST,'password',FILTER_SANITIZE_STRING);
+        $action = filter_input(INPUT_POST,'action',FILTER_SANITIZE_STRING);
+        
+        
+        if (isset($action) && $action =='checkUser') {
+
+            
+            if (empty($username)) {
+                $error['username'] = 'Username is empty';
+                die(print_r($error['username']));
+            }
+            if (empty($password)) {
+                $error['password'] = 'Password is empty';
+            }
+            
+            $user = $app['database']->getUserByUsername('user', $username);
+            
+            //die(print_r($error));
+            if (empty($error)) {
+                
+                if (!empty($user)) {
+    
+                    $error['username_error'] = 'Kasutaja on juba registreeritud!';
+                    return view('register', ['error' => $error]);
+                    }
+                    
+                $app['database']->insert('user', [
+                    'username' => $username,
+                    'password' => $password,
+                    'role' => 'user',
+                    'reg_date' => date("Y-m-d H:i:s")
+                ]);
+
+                $user = $this->auth($username, $password);
+
+                if ($user) {
+                    session_start();
+                    $_SESSION['is_admin'] = $user->role;
+                    $_SESSION['is_logged_in'] = true;
+                    $_SESSION['user'] = $username;
+                    
+                    return view('index');
+                }
+                
+
+            }
+                    
+        }
+    }
 }
